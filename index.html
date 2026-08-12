@@ -3,42 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GAME HUB - Play Simple 2D Games</title>
+  <title>GAME HUB - Home</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
   <header class="navbar">
     <div class="nav-brand">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2">
-        <rect x="2" y="6" width="20" height="12" rx="4"/>
-        <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
-      </svg>
       <span>GAME <span class="brand-purple">HUB</span></span>
     </div>
     <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#popular">Games</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          🌙
-        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
       </li>
     </ul>
   </header>
 
   <section class="hero">
-    <div class="hero-icon">
-      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.5">
-        <rect x="2" y="6" width="20" height="12" rx="4"/>
-        <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
-      </svg>
-    </div>
     <h1>GAME <span>HUB</span></h1>
     <p>Play simple 2D games. Have fun!</p>
-    <button class="btn-primary" id="browseBtn">
-      ▶ BROWSE GAMES
-    </button>
+    <a href="#popular" class="btn-primary" id="browseBtn">▶ BROWSE GAMES</a>
   </section>
 
   <main class="container" id="popular">
@@ -53,7 +38,7 @@
           </svg>
         </div>
         <div class="game-title">Snake</div>
-        <button class="btn-play" data-game="snake">Play</button>
+        <a href="pages/snake.html" class="btn-play">Play</a>
       </div>
 
       <div class="game-card">
@@ -65,7 +50,7 @@
           </svg>
         </div>
         <div class="game-title">Pong</div>
-        <button class="btn-play" data-game="pong">Play</button>
+        <a href="pages/pong.html" class="btn-play">Play</a>
       </div>
 
       <div class="game-card">
@@ -76,7 +61,7 @@
           </div>
         </div>
         <div class="game-title">2048</div>
-        <button class="btn-play" data-game="2048">Play</button>
+        <a href="pages/2048.html" class="btn-play">Play</a>
       </div>
 
       <div class="game-card">
@@ -88,7 +73,7 @@
           </div>
         </div>
         <div class="game-title">Sudoku</div>
-        <button class="btn-play" data-game="sudoku">Play</button>
+        <a href="pages/sudoku.html" class="btn-play">Play</a>
       </div>
 
       <div class="game-card">
@@ -97,15 +82,12 @@
             <rect x="10" y="10" width="24" height="10" fill="#ef4444" rx="2"/>
             <rect x="38" y="10" width="24" height="10" fill="#eab308" rx="2"/>
             <rect x="66" y="10" width="24" height="10" fill="#22c55e" rx="2"/>
-            <rect x="10" y="24" width="24" height="10" fill="#3b82f6" rx="2"/>
-            <rect x="38" y="24" width="24" height="10" fill="#a855f7" rx="2"/>
-            <rect x="66" y="24" width="24" height="10" fill="#ef4444" rx="2"/>
             <circle cx="50" cy="55" r="5" fill="#ffffff"/>
             <rect x="30" y="80" width="40" height="8" fill="#3b82f6" rx="4"/>
           </svg>
         </div>
         <div class="game-title">Breakout</div>
-        <button class="btn-play" data-game="breakout">Play</button>
+        <a href="pages/breakout.html" class="btn-play">Play</a>
       </div>
 
       <div class="game-card">
@@ -113,27 +95,13 @@
           <span style="font-size:2.5rem;">♚ ♘</span>
         </div>
         <div class="game-title">Chess</div>
-        <button class="btn-play" data-game="chess">Play</button>
+        <a href="pages/chess.html" class="btn-play">Play</a>
       </div>
 
     </div>
   </main>
 
-  <div class="modal-overlay" id="gameModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="modal-title" id="modalTitle">Game</span>
-        <button class="close-btn" id="closeModalBtn">&times;</button>
-      </div>
-      <div class="game-area" id="gameArea"></div>
-    </div>
-  </div>
-
-  <footer>
-    © 2024 Game Hub. All rights reserved.
-  </footer>
-
-  <script src="js/games.js"></script>
+  <footer>© 2024 Game Hub. All rights reserved.</footer>
   <script src="js/main.js"></script>
 </body>
 </html>
