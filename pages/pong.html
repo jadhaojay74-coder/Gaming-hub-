@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pong - Game Hub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-brand"><span>GAME <span class="brand-purple">HUB</span></span></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><button class="theme-toggle" id="themeToggle">🌙</button></li>
+    </ul>
+  </header>
 
+  <main class="game-screen">
+    <h2>🏓 Pong</h2>
+    <canvas id="pongCanvas" width="300" height="200"></canvas>
+    <br/>
+    <a href="../index.html" class="btn-back">⬅ Back to Home</a>
+  </main>
+
+  <footer>© 2024 Game Hub</footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const canvas = document.getElementById('pongCanvas');
+    const ctx = canvas.getContext('2d');
+    let p1 = 80, ball = {x: 150, y: 100, dx: 3, dy: 3};
+
+    canvas.onmousemove = (e) => { p1 = e.clientY - canvas.getBoundingClientRect().top - 20; };
+
+    setInterval(() => {
+      ball.x += ball.dx; ball.y += ball.dy;
+      if (ball.y <= 0 || ball.y >= 190) ball.dy *= -1;
+      if (ball.x <= 15 && ball.y >= p1 && ball.y <= p1 + 40) ball.dx = Math.abs(ball.dx);
+      if (ball.x >= 285 || ball.x <= 0) ball.dx *= -1;
+
+      ctx.fillStyle = '#0f172a'; ctx.fillRect(0,0,300,200);
+      ctx.fillStyle = '#3b82f6'; ctx.fillRect(5, p1, 8, 40);
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(ball.x, ball.y, 6, 0, Math.PI*2); ctx.fill();
+    }, 1000/60);
+  </script>
+</body>
+</html>
