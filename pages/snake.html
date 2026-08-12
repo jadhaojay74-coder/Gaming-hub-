@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake - Game Hub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-brand"><span>GAME <span class="brand-purple">HUB</span></span></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><button class="theme-toggle" id="themeToggle">🌙</button></li>
+    </ul>
+  </header>
 
+  <main class="game-screen">
+    <h2>🐍 Snake Game</h2>
+    <canvas id="snakeCanvas" width="280" height="280"></canvas>
+    <br/>
+    <a href="../index.html" class="btn-back">⬅ Back to Home</a>
+  </main>
+
+  <footer>© 2024 Game Hub</footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const canvas = document.getElementById('snakeCanvas');
+    const ctx = canvas.getContext('2d');
+    let snake = [{x: 5, y: 5}], food = {x: 10, y: 10}, dx = 1, dy = 0;
+
+    document.onkeydown = (e) => {
+      if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -1; }
+      if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = 1; }
+      if (e.key === 'ArrowLeft' && dx === 0) { dx = -1; dy = 0; }
+      if (e.key === 'ArrowRight' && dx === 0) { dx = 1; dy = 0; }
+    };
+
+    setInterval(() => {
+      let head = {x: snake[0].x + dx, y: snake[0].y + dy};
+      if (head.x < 0 || head.x >= 18 || head.y < 0 || head.y >= 18) {
+        snake = [{x: 5, y: 5}]; dx = 1; dy = 0;
+      } else {
+        snake.unshift(head);
+        if (head.x === food.x && head.y === food.y) {
+          food = {x: Math.floor(Math.random()*18), y: Math.floor(Math.random()*18)};
+        } else snake.pop();
+      }
+
+      ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, 280, 280);
+      ctx.fillStyle = '#ef4444'; ctx.fillRect(food.x*15, food.y*15, 14, 14);
+      ctx.fillStyle = '#22c55e'; snake.forEach(s => ctx.fillRect(s.x*15, s.y*15, 14, 14));
+    }, 120);
+  </script>
+</body>
+</html>
